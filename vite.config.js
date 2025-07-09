@@ -1,13 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react( )],
-  build: {
-    rollupOptions: {
-      input: './index.html', // Força o Rollup a usar index.html como ponto de entrada
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // Adicione esta linha
     },
   },
-  base: '/', // Mantemos esta linha
+  build: {
+    rollupOptions: {
+      input: './index.html',
+    },
+  },
+  base: '/',
 })
