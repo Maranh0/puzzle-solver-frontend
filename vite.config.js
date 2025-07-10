@@ -7,13 +7,14 @@ export default defineConfig({
   plugins: [react( )],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // Adicione esta linha
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
     rollupOptions: {
       input: './index.html',
     },
+    sourcemap: false, // Adicione esta linha para desativar sourcemaps em produção
   },
   base: '/',
 })
