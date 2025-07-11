@@ -14,7 +14,10 @@ export default defineConfig({
     rollupOptions: {
       input: './index.html',
     },
-    sourcemap: false, // Adicione esta linha para desativar sourcemaps em produção
+    sourcemap: false, // Manter desativado
+    // Adicionar estas linhas para garantir compatibilidade com CSP
+    cssCodeSplit: true, // Garante que o CSS seja injetado como arquivos separados
+    assetsInlineLimit: 0, // Evita que assets pequenos sejam inlined (o que pode gerar eval)
   },
   base: '/',
 })
