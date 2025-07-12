@@ -30,14 +30,12 @@ function App() {
     }
   }
 
-// Removida a linha: const API_BASE_URL = 'https://...';
-
-  const uploadReferenceImage = async (imageData ) => {
+  const uploadReferenceImage = async (imageData) => {
     setIsProcessing(true)
     setError(null)
     
     try {
-      const response = await fetch(`/api/puzzle/upload_reference`, { // Caminho relativo
+      const response = await fetch(`/api/puzzle/upload_reference`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +74,7 @@ function App() {
     setResult(null)
     
     try {
-      const response = await fetch(`/api/puzzle/find_piece`, { // Caminho relativo
+      const response = await fetch(`/api/puzzle/find_piece`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -234,7 +232,7 @@ function App() {
               </>
             )}
           </Button>
-        )
+        </div> {/* <-- Adicionado o fechamento da div aqui */}
 
         {/* Results */}
         {result && (
