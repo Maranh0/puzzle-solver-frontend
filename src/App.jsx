@@ -30,14 +30,14 @@ function App() {
     }
   }
 
-const API_BASE_URL = 'https://5000-ibih5qjh5utbvvlgeg07p-23d6e28a.manusvm.computer';
+// Removida a linha: const API_BASE_URL = 'https://...';
 
-  const uploadReferenceImage = async (imageData) => {
+  const uploadReferenceImage = async (imageData ) => {
     setIsProcessing(true)
     setError(null)
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/puzzle/upload_reference`, {
+      const response = await fetch(`/api/puzzle/upload_reference`, { // Caminho relativo
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const API_BASE_URL = 'https://5000-ibih5qjh5utbvvlgeg07p-23d6e28a.manusvm.comput
     setResult(null)
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/puzzle/find_piece`, {
+      const response = await fetch(`/api/puzzle/find_piece`, { // Caminho relativo
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -234,7 +234,7 @@ const API_BASE_URL = 'https://5000-ibih5qjh5utbvvlgeg07p-23d6e28a.manusvm.comput
               </>
             )}
           </Button>
-        </div>
+        )
 
         {/* Results */}
         {result && (
@@ -343,4 +343,3 @@ const API_BASE_URL = 'https://5000-ibih5qjh5utbvvlgeg07p-23d6e28a.manusvm.comput
 }
 
 export default App
-
